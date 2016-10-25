@@ -56,24 +56,21 @@ if __name__ == '__main__':
 
     with open('token_gitter', 'r') as tokenfile_gitter:
         with open('token_slack', 'r') as tokenfile_slack:
-            
+
             token_gitter = tokenfile_gitter.read().strip()
             token_slack = tokenfile_slack.read().strip()
             slack_client = SlackClient(token_slack)
-          
+
             #gitter_rooms = gitter_rooms(token_gitter, 'gloubi')
             gitter_rooms = gitter_rooms(token_gitter, 'ethereum')
             slack_channels = slack_channels(slack_client, 'test')
-            
+
             # gitter: slack
             mirror = [
-                #['gloubi/Lobby','test_bot'], 
+                #['gloubi/Lobby','test_bot'],
                 ['ethereum/solidity','test_bot'],
             ]
 
             for gitter_room, slack_channel in mirror:
                 listen_gitter_post_slack(token_gitter, slack_client, gitter_rooms[gitter_room], slack_channels[slack_channel])
-
-
-
-ubi/Lobby
+                
