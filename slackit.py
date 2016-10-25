@@ -73,13 +73,22 @@ if __name__ == '__main__':
 
     slack_client = SlackClient(token_slack)
 
-    gitter_rooms = gitter_rooms(token_gitter, 'gloubi')
-    slack_channels = slack_channels(slack_client, 'test')
+    gitter_rooms = gitter_rooms(token_gitter, 'ethereum')
+    slack_channels = slack_channels(slack_client, 'gitter')
 
     # gitter: slack
     mirror = [
-        ['gloubi/Lobby','test_bot'],
-        ['gloubi/zobi','test_bot_2'],
+        ['ethereum/solidity','gitter_solidity'],
+        ['ethereum/web3.js', 'gitter_web3js'],
+        ['ethereum/cpp-ethereum', 'gitter_cpp-ethereum'],
+        ['ethereum/light-client', 'gitter_light-client'],
+        ['ethereum/go-ethereum', 'gitter_go-ethereum'],
+        ['ethereum/tutorials', 'gitter_tutorials'],
+        ['ethereum/yellowpaper', 'gitter_yellowpaper'],
+        ['ethereum/ethereumj', 'gitter_ethereumj'],
+        ['ethereum/mist', 'gitter_mist'],
+        ['ethereum/research', 'gitter_research'],
+        ['ethereum/welcome', 'gitter_welcome'],
     ]
 
     for gitter_room, slack_channel in mirror:
