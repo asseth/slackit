@@ -1,5 +1,5 @@
-import argparse
 import json
+import os
 import requests
 from slackclient import SlackClient
 from threading import Thread
@@ -62,14 +62,8 @@ if __name__ == '__main__':
         print("THREAD {room} {channel}".format(room=room, channel=channel))
         listen_gitter_post_slack(token_gitter, slack_client, room, channel)
 
-    parser = argparse.ArgumentParser(description='Slackbot for french medals')
-    parser.add_argument('--token_gitter', help="https://developer.gitter.im/docs/authentication")
-    parser.add_argument('--token_slack', help="https://api.slack.com/tokens")
-
-    args = parser.parse_args()
-
-    token_gitter = args.token_gitter
-    token_slack = args.token_slack
+    token_gitter = os.environ['GITTER_TOKEN']
+    token_slack = os.environ['SLACK_TOKEN']
 
     slack_client = SlackClient(token_slack)
 
