@@ -6,5 +6,7 @@ ENV GITTER_TOKEN YOUR_GITTER_TOKEN
 COPY slackit.py /root/
 COPY requirements.txt /root/
 
+RUN pip install --upgrade pip
 RUN pip install -r /root/requirements.txt
+
 CMD ["/usr/bin/python3", "/root/slackit.py"]
